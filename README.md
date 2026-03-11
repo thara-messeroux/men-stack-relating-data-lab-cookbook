@@ -23,3 +23,20 @@ Engineering patterns used:
 - CRUD (Create Read Update Delete)
 - MVC (Model View Controller)
 - Separation of concerns
+
+### Step 3 🐙 — Created Recipe model
+
+What we did
+Created the Recipe schema and model.
+
+Why we did it
+The model defines what a recipe document looks like in MongoDB.
+
+Engineering concept
+Schema = blueprint for documents.
+
+Architecture used
+MVC
+Model = database structure.
+
+

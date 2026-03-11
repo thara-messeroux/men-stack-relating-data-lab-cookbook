@@ -1,5 +1,7 @@
 // models/recipe.js
 
+// This file defines the Recipe model, which represents a recipe in our database
+
 // Import mongoose so we can define schemas
 const mongoose = require("mongoose");
 
