@@ -2,6 +2,8 @@
 
 // Import the Recipe model so we can interact with the database
 
+// The waiter who takes orders and tells the kitchen what to do
+
 // Import express
 const express = require("express");
 

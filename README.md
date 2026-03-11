@@ -1,14 +1,50 @@
-## Concept: Referencing Data
+# MEN Stack Relating Data Lab — Cookbook
+Exercise: Referencing Related Data
 
-MongoDB relates data using two approaches:
+This lab practices building a CRUD app using the MEN stack and learning how to relate data using MongoDB references.
 
-Embedding → store data inside a document
+Tech stack:
+- MongoDB
+- Express
+- Node.js
+- EJS
+- Mongoose
 
+
+------------------------------------
+
+## Step Log (ADHD-friendly)
+
+### Step 1 🐢 — Project setup and GitHub connection
+
+What we did
+- Initialized git repository
+- Connected project to GitHub
+- Created `.env`
+- Installed dependencies
+
+Why we did it
+A clean project setup ensures the app runs consistently and version control tracks all progress.
+
+Engineering concept
+Reproducible setup + Git version control.
+
+Keywords
+- Repository → project history
+- `.env` → secret configuration file
+
+
+------------------------------------
+
+### Step 2 🦉 — Understanding referencing vs embedding
+
+What we learned
+MongoDB relates data using two strategies:
+
+Embedding → store related data inside the same document  
 Referencing → store ObjectIds that point to other documents
 
-This lab focuses on referencing.
-
-Example:
+Example referencing:
 
 Recipe document
 
@@ -17,26 +53,43 @@ Recipe document
   ingredients: [ObjectId("123"), ObjectId("456")]
 }
 
-We later use `populate()` to replace these IDs with real ingredient documents.
+`populate()` later replaces those IDs with full documents.
 
-Engineering patterns used:
-- CRUD (Create Read Update Delete)
-- MVC (Model View Controller)
-- Separation of concerns
+Engineering concepts
+- Database relationships
+- CRUD pattern
+- MVC architecture
 
-### Step 3 🐙 — Created Recipe model
+
+------------------------------------
+
+### Step 3 🐙 — Created recipes controller
 
 What we did
-Created the Recipe schema and model.
+Created the `controllers/recipes.js` file and initialized an Express router.
 
 Why we did it
-The model defines what a recipe document looks like in MongoDB.
+Controllers handle application logic and routes in MVC.
 
 Engineering concept
-Schema = blueprint for documents.
+MVC Architecture
 
-Architecture used
-MVC
-Model = database structure.
+Model → database structure  
+Controller → request logic  
+View → user interface
 
 
+------------------------------------
+
+### Step 4 🦊 — Connected recipes controller to server
+
+What we did
+Imported the recipes controller into `server.js` and mounted it using:
+
+app.use("/recipes", recipesController)
+
+Why we did it
+This tells Express to send all `/recipes` requests to the recipes controller.
+
+Engineering concept
+Express routing layer.
