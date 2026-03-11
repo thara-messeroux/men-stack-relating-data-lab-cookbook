@@ -1,5 +1,7 @@
 // models/recipe.js
 
+// Model: Kitchen: Stores and prepares the food
+
 // This file defines the Recipe model, which represents a recipe in our database
 
 // The recipe book that defines how food is stored in our database

@@ -13,6 +13,13 @@ Tech stack:
 
 ------------------------------------
 
+Model → defines data
+Controller → handles requests
+View → displays pages
+
+------------------------------------
+
+
 ## Step Log (ADHD-friendly)
 
 ### Step 1 🐢 — Project setup and GitHub connection
@@ -93,3 +100,18 @@ This tells Express to send all `/recipes` requests to the recipes controller.
 
 Engineering concept
 Express routing layer.
+
+------------------------------------
+
+### Step 5 🦁 — Created recipes index route
+
+What we did
+Created the GET /recipes route in the recipes controller.
+
+Why we did it
+This route will display the main recipes page.
+
+Engineering concept
+CRUD → Read operation.
+
+The controller receives the request and renders a view.
