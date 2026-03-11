@@ -131,3 +131,22 @@ MVC architecture
 
 Controller → chooses view
 View → displays page
+
+### Step 7 🐝 — Connected Recipe model to controller
+
+What we did
+Imported the Recipe model into the recipes controller.
+
+Why we did it
+Controllers need the model to read and write data from MongoDB.
+
+Engineering concept
+MVC architecture.
+
+Controller → asks Model
+Model → talks to database
+
+Analogy
+Controller = person making the call
+Model = phone number
+Database = person answering

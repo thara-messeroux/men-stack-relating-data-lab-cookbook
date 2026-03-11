@@ -12,6 +12,9 @@ const express = require("express");
 // Create a router
 const router = express.Router();
 
+// Import Recipe model
+const Recipe = require("../models/recipe");
+
 // INDEX ROUTE
 // Displays all recipes
 router.get("/", async (req, res) => {
