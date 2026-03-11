@@ -115,3 +115,19 @@ Engineering concept
 CRUD → Read operation.
 
 The controller receives the request and renders a view.
+
+------------------------------------
+
+### Step 6 🦁 — Created recipes index view
+
+What we did
+Created the recipes folder and index.ejs view.
+
+Why we did it
+The controller renders this page when users visit /recipes.
+
+Engineering concept
+MVC architecture
+
+Controller → chooses view
+View → displays page
