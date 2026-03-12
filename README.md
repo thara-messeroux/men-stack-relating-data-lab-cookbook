@@ -132,6 +132,9 @@ MVC architecture
 Controller → chooses view
 View → displays page
 
+------------------------------------
+
+
 ### Step 7 🐝 — Connected Recipe model to controller
 
 What we did
@@ -150,3 +153,19 @@ Analogy
 Controller = person making the call
 Model = phone number
 Database = person answering
+
+------------------------------------
+
+
+### Step 8 🐝 — Reading recipes from database
+
+What we did
+Used `Recipe.find()` in the index route to retrieve all recipes.
+
+Why we did it
+The controller must fetch data from MongoDB before sending it to the view.
+
+Engineering concept
+CRUD pattern — Read operation.
+
+Controller → Model → Database → Controller → View

@@ -18,7 +18,13 @@ const Recipe = require("../models/recipe");
 // INDEX ROUTE
 // Displays all recipes
 router.get("/", async (req, res) => {
-    res.render("recipes/index");
+
+    // Get all recipes from MongoDB
+    const recipes = await Recipe.find();
+
+    // Send recipes to the view
+    res.render("recipes/index", { recipes });
+
 });
 
 // Export router so server.js can use it
