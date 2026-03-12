@@ -118,7 +118,7 @@ The controller receives the request and renders a view.
 
 ------------------------------------
 
-### Step 6 🦁 — Created recipes index view
+### Step 6 🦁 — Created recipes index view (EJS template)
 
 What we did
 Created the recipes folder and index.ejs view.
@@ -169,3 +169,23 @@ Engineering concept
 CRUD pattern — Read operation.
 
 Controller → Model → Database → Controller → View
+
+------------------------------------
+
+### Step 9 🐨 — Displayed recipes in the view
+
+What we did
+Used an EJS loop to display recipe names on the index page.
+
+Why we did it
+The controller sends recipes to the view, and the view must iterate through them.
+
+Engineering concept
+EJS templating and server-side rendering.
+
+Controller → sends data
+View → displays data
+
+------------------------------------
+
+### Step 9 🐨 — Displayed recipes in the view

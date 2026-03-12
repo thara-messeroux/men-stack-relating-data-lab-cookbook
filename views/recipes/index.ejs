@@ -1,3 +1,9 @@
 <h1>My Recipes</h1>
 
-<p>This page will display all recipes.</p>
+<ul>
+    <% recipes.forEach(recipe=> { %>
+        <li>
+            <%= recipe.name %>
+        </li>
+        <% }) %>
+</ul>
