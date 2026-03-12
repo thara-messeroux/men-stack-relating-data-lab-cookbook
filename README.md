@@ -188,4 +188,17 @@ View → displays data
 
 ------------------------------------
 
-### Step 9 🐨 — Displayed recipes in the view
+### Step 10 🐼 — Configured Express view engine
+What we did
+Configured Express to use EJS as the view engine in server.js.
+
+app.set('view engine', 'ejs');
+
+Why we did it
+Express must know which template engine renders views when res.render() is used.
+
+Engineering concept
+Server configuration + template engines.
+
+Keyword
+View Engine → system that renders dynamic HTML templates.
