@@ -3,7 +3,20 @@
 <ul>
     <% recipes.forEach(recipe=> { %>
         <li>
-            <%= recipe.name %>
+
+            <!-- 1️. MongoDB automatically gives each document a unique _id -->
+            <!-- This ID uniquely identifies a recipe in the database -->
+
+            <!-- 2️. Dynamic route parameter -->
+            <!-- The :recipeId in /recipes/:recipeId will receive this _id -->
+
+            <!-- 3️. Navigation to the show page -->
+            <!-- Clicking the recipe name sends the user to that recipe's page -->
+
+            <a href="/recipes/<%= recipe._id %>">
+                <%= recipe.name %>
+            </a>
+
         </li>
         <% }) %>
 </ul>
