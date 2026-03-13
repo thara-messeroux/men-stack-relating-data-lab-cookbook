@@ -116,6 +116,13 @@ CRUD → Read operation.
 
 The controller receives the request and renders a view.
 
+Test the route
+
+http://localhost:3000/recipes
+
+Expected result
+You should see the recipes index page render.
+
 ------------------------------------
 
 ### Step 6 🦁 — Created recipes index view (EJS template)
@@ -131,6 +138,13 @@ MVC architecture
 
 Controller → chooses view
 View → displays page
+
+Test the view
+
+http://localhost:3000/recipes
+
+Expected result
+The page should display all recipes returned from the database.
 
 ------------------------------------
 
@@ -170,6 +184,13 @@ CRUD pattern — Read operation.
 
 Controller → Model → Database → Controller → View
 
+Test database read
+
+http://localhost:3000/recipes
+
+Expected result
+Recipes stored in MongoDB should appear in the list.
+
 ------------------------------------
 
 ### Step 9 🐨 — Displayed recipes in the view
@@ -185,6 +206,13 @@ EJS templating and server-side rendering.
 
 Controller → sends data
 View → displays data
+
+Test rendering loop
+
+http://localhost:3000/recipes
+
+Expected result
+Each recipe name should be displayed using an EJS loop.
 
 ------------------------------------
 
@@ -219,6 +247,20 @@ Database relationships using MongoDB referencing.
 Key concept
 ref → tells Mongoose which model the ObjectId belongs to.
 
+Verification
+
+Open MongoDB and inspect a recipe document.
+
+Example structure
+
+{
+  name: "Pizza",
+  ingredients: [ObjectId(...)]
+}
+
+Expected result
+The ingredients field stores ObjectId references.
+
 ------------------------------------
 
 ### Step 12 🦏 — Created Ingredient model
@@ -234,6 +276,13 @@ Database normalization.
 
 Instead of duplicating ingredient names in many recipes,
 we store them once and reference them using ObjectIds.
+
+Verification
+
+Open MongoDB and check the ingredients collection.
+
+Expected result
+Ingredient documents exist in their own collection.
 
 ------------------------------------
 
@@ -275,6 +324,13 @@ Relational data retrieval.
 Reference → stores ID
 populate() → retrieves the related document.
 
+Test relational data loading
+
+http://localhost:3000/recipes
+
+Expected result
+Recipes should load their related ingredient documents using populate().
+
 ------------------------------------
 
 ### Step 15 🐅 — Created recipe show page
@@ -292,6 +348,17 @@ Example route
 /recipes/:recipeId
 
 The recipeId is extracted from the URL and used to query MongoDB.
+
+Test the show route
+
+http://localhost:3000/recipes/<recipeId>
+
+Example
+
+http://localhost:3000/recipes/65f2b3...
+
+Expected result
+The page should display a single recipe and its ingredients.
 
 ------------------------------------
 
