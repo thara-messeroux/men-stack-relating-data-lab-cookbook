@@ -205,4 +205,17 @@ View Engine → system that renders dynamic HTML templates.
 
 ------------------------------------
 
+### Step 🐘 — Added ingredient references to recipe model
+
+What we did
+Added an ingredients field referencing Ingredient documents.
+
+Why we did it
+Recipes and ingredients live in separate collections but need to be related.
+
+Engineering concept
+Database relationships using MongoDB referencing.
+
+Key concept
+ref → tells Mongoose which model the ObjectId belongs to.
 

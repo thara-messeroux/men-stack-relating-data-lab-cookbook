@@ -9,18 +9,28 @@
 // Import mongoose so we can define schemas
 const mongoose = require("mongoose");
 
-// Create a schema (blueprint for recipes)
+// Schema: blueprint for recipe documents
 const recipeSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
+
     cookTime: Number,
-    instructions: String
+
+    instructions: String,
+
+    // Relationship: recipes reference ingredients
+    ingredients: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Ingredient"
+        }
+    ]
 });
 
 // Create model from schema
 const Recipe = mongoose.model("Recipe", recipeSchema);
 
-// Export the model so controllers can use it
+// Export model so controllers can access database
 module.exports = Recipe;
