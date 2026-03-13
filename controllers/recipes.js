@@ -37,5 +37,14 @@ router.post("/", async (req, res) => {
     res.redirect("/recipes");
 });
 
+router.get("/:recipeId", async (req, res) => {
+
+    const recipe = await Recipe.findById(req.params.recipeId)
+        .populate("ingredients");
+
+    res.render("recipes/show.ejs", { recipe });
+
+});
+
 // Export router so server.js can use it
 module.exports = router;

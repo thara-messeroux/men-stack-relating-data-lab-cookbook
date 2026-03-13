@@ -1,0 +1,13 @@
+<h1>
+    <%= recipe.name %>
+</h1>
+
+<h2>Ingredients</h2>
+
+<ul>
+    <% recipe.ingredients.forEach(ingredient=> { %>
+        <li>
+            <%= ingredient.name %>
+        </li>
+        <% }) %>
+</ul>
