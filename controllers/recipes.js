@@ -31,5 +31,10 @@ router.get("/new", (req, res) => {
     res.render("recipes/new.ejs");
 });
 
+router.post("/", async (req, res) => {
+    await Recipe.create(req.body);
+    res.redirect("/recipes");
+});
+
 // Export router so server.js can use it
 module.exports = router;
