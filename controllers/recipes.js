@@ -27,5 +27,9 @@ router.get("/", async (req, res) => {
 
 });
 
+router.get("/new", (req, res) => {
+    res.render("recipes/new.ejs");
+});
+
 // Export router so server.js can use it
 module.exports = router;
