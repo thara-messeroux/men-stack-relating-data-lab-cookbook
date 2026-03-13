@@ -20,7 +20,8 @@ const Recipe = require("../models/recipe");
 router.get("/", async (req, res) => {
 
     // Get all recipes from MongoDB
-    const recipes = await Recipe.find();
+    const recipes = await Recipe.find().populate("ingredients");
+
 
     // Send recipes to the view
     res.render("recipes/index", { recipes });
