@@ -205,7 +205,7 @@ View Engine → system that renders dynamic HTML templates.
 
 ------------------------------------
 
-### Step 🐘 — Added ingredient references to recipe model
+### Step 11 🐘 — Added ingredient references to recipe model
 
 What we did
 Added an ingredients field referencing Ingredient documents.
@@ -219,3 +219,98 @@ Database relationships using MongoDB referencing.
 Key concept
 ref → tells Mongoose which model the ObjectId belongs to.
 
+------------------------------------
+
+### Step 12 🦏 — Created Ingredient model
+
+What we did
+Created a new Mongoose model for ingredients in models/ingredient.js.
+
+Why we did it
+Ingredients must exist in their own MongoDB collection so recipes can reference them.
+
+Engineering concept
+Database normalization.
+
+Instead of duplicating ingredient names in many recipes,
+we store them once and reference them using ObjectIds.
+
+------------------------------------
+
+### Step 13 🦒 — Referencing ingredients in recipes
+
+What we did
+Updated the Recipe schema to include an ingredients array of ObjectIds.
+
+ingredients: [
+  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Ingredient"
+  }
+]
+
+Why we did it
+This creates a relationship between recipes and ingredients.
+
+Engineering concept
+MongoDB referencing.
+
+Recipes store references to ingredients instead of duplicating ingredient data.
+
+------------------------------------
+
+### Step 14 🐋 — Using populate() to load related data
+
+What we did
+Updated the recipe query to use populate().
+
+const recipes = await Recipe.find().populate("ingredients");
+
+Why we did it
+populate() replaces stored ObjectIds with the full ingredient documents.
+
+Engineering concept
+Relational data retrieval.
+
+Reference → stores ID
+populate() → retrieves the related document.
+
+------------------------------------
+
+### Step 15 🐅 — Created recipe show page
+
+What we did
+Created a GET /recipes/:recipeId route and a show.ejs view.
+
+Why we did it
+The show page displays a single recipe and its related ingredients.
+
+Engineering concept
+Dynamic routing using route parameters.
+
+Example route
+/recipes/:recipeId
+
+The recipeId is extracted from the URL and used to query MongoDB.
+
+------------------------------------
+
+## Key Concepts Learned
+
+MVC Architecture
+Model → database schema
+Controller → application logic
+View → user interface
+
+CRUD Pattern
+Create
+Read
+Update
+Delete
+
+MongoDB Relationships
+Embedding → store related data inside the same document
+Referencing → store ObjectIds pointing to other documents
+
+populate()
+Replaces stored ObjectIds with the full referenced documents.
