@@ -1,15 +1,25 @@
+<h1><%= recipe.name %></h1>
+
 <h2>Ingredients</h2>
 
 <% if (recipe.ingredients.length===0) { %>
     <p>No ingredients yet.</p>
-    <% } else { %>
+<% } else { %>
 
-        <ul>
-            <% recipe.ingredients.forEach(ingredient=> { %>
-                <li>
-                    <%= ingredient.name %>
-                </li>
-                <% }) %>
-        </ul>
+    <ul>
+        <% recipe.ingredients.forEach(ingredient=> { %>
+            <li>
+                <%= ingredient.name %>
+            </li>
+            <% }) %>
+    </ul>
 
-        <% } %>
+<% } %>
+
+
+<h3>Add Ingredient</h3>
+
+<form action="/recipes/<%= recipe._id %>/ingredients" method="POST">
+  <input type="text" name="name" placeholder="Ingredient name" required>
+  <button>Add Ingredient</button>
+</form>
