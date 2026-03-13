@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ingredientSchema = new mongoose.Schema({
-    name: String
+  name: String,
 });
 
 const Ingredient = mongoose.model("Ingredient", ingredientSchema);

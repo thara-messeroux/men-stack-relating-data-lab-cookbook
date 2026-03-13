@@ -21,32 +21,28 @@ const Ingredient = require("../models/ingredient");
 // INDEX ROUTE
 // Displays all recipes
 router.get("/", async (req, res) => {
+  // Get all recipes from MongoDB
+  const recipes = await Recipe.find().populate("ingredients");
 
-    // Get all recipes from MongoDB
-    const recipes = await Recipe.find().populate("ingredients");
-
-
-    // Send recipes to the view
-    res.render("recipes/index", { recipes });
-
+  // Send recipes to the view
+  res.render("recipes/index", { recipes });
 });
 
 router.get("/new", (req, res) => {
-    res.render("recipes/new.ejs");
+  res.render("recipes/new.ejs");
 });
 
 router.post("/", async (req, res) => {
-    await Recipe.create(req.body);
-    res.redirect("/recipes");
+  await Recipe.create(req.body);
+  res.redirect("/recipes");
 });
 
 router.get("/:recipeId", async (req, res) => {
+  const recipe = await Recipe.findById(req.params.recipeId).populate(
+    "ingredients",
+  );
 
-    const recipe = await Recipe.findById(req.params.recipeId)
-        .populate("ingredients");
-
-    res.render("recipes/show.ejs", { recipe });
-
+  res.render("recipes/show.ejs", { recipe });
 });
 
 // Export router so server.js can use it

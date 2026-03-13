@@ -1,30 +1,31 @@
 # MEN Stack Relating Data Lab — Cookbook
+
 Exercise: Referencing Related Data
 
 This lab practices building a CRUD app using the MEN stack and learning how to relate data using MongoDB references.
 
 Tech stack:
+
 - MongoDB
 - Express
 - Node.js
 - EJS
 - Mongoose
 
-
-------------------------------------
+---
 
 Model → defines data
 Controller → handles requests
 View → displays pages
 
-------------------------------------
-
+---
 
 ## Step Log (ADHD-friendly)
 
 ### Step 1 🐢 — Project setup and GitHub connection
 
 What we did
+
 - Initialized git repository
 - Connected project to GitHub
 - Created `.env`
@@ -37,11 +38,11 @@ Engineering concept
 Reproducible setup + Git version control.
 
 Keywords
+
 - Repository → project history
 - `.env` → secret configuration file
 
-
-------------------------------------
+---
 
 ### Step 2 🦉 — Understanding referencing vs embedding
 
@@ -56,19 +57,19 @@ Example referencing:
 Recipe document
 
 {
-  name: "Pizza",
-  ingredients: [ObjectId("123"), ObjectId("456")]
+name: "Pizza",
+ingredients: [ObjectId("123"), ObjectId("456")]
 }
 
 `populate()` later replaces those IDs with full documents.
 
 Engineering concepts
+
 - Database relationships
 - CRUD pattern
 - MVC architecture
 
-
-------------------------------------
+---
 
 ### Step 3 🐙 — Created recipes controller
 
@@ -85,8 +86,7 @@ Model → database structure
 Controller → request logic  
 View → user interface
 
-
-------------------------------------
+---
 
 ### Step 4 🦊 — Connected recipes controller to server
 
@@ -101,7 +101,7 @@ This tells Express to send all `/recipes` requests to the recipes controller.
 Engineering concept
 Express routing layer.
 
-------------------------------------
+---
 
 ### Step 5 🦁 — Created recipes index route
 
@@ -123,7 +123,7 @@ http://localhost:3000/recipes
 Expected result
 You should see the recipes index page render.
 
-------------------------------------
+---
 
 ### Step 6 🦁 — Created recipes index view (EJS template)
 
@@ -146,8 +146,7 @@ http://localhost:3000/recipes
 Expected result
 The page should display all recipes returned from the database.
 
-------------------------------------
-
+---
 
 ### Step 7 🐝 — Connected Recipe model to controller
 
@@ -168,8 +167,7 @@ Controller = person making the call
 Model = phone number
 Database = person answering
 
-------------------------------------
-
+---
 
 ### Step 8 🐝 — Reading recipes from database
 
@@ -191,7 +189,7 @@ http://localhost:3000/recipes
 Expected result
 Recipes stored in MongoDB should appear in the list.
 
-------------------------------------
+---
 
 ### Step 9 🐨 — Displayed recipes in the view
 
@@ -214,9 +212,10 @@ http://localhost:3000/recipes
 Expected result
 Each recipe name should be displayed using an EJS loop.
 
-------------------------------------
+---
 
 ### Step 10 🐼 — Configured Express view engine
+
 What we did
 Configured Express to use EJS as the view engine in server.js.
 
@@ -231,7 +230,7 @@ Server configuration + template engines.
 Keyword
 View Engine → system that renders dynamic HTML templates.
 
-------------------------------------
+---
 
 ### Step 11 🐘 — Added ingredient references to recipe model
 
@@ -254,14 +253,14 @@ Open MongoDB and inspect a recipe document.
 Example structure
 
 {
-  name: "Pizza",
-  ingredients: [ObjectId(...)]
+name: "Pizza",
+ingredients: [ObjectId(...)]
 }
 
 Expected result
 The ingredients field stores ObjectId references.
 
-------------------------------------
+---
 
 ### Step 12 🦏 — Created Ingredient model
 
@@ -284,7 +283,7 @@ Open MongoDB and check the ingredients collection.
 Expected result
 Ingredient documents exist in their own collection.
 
-------------------------------------
+---
 
 ### Step 13 🦒 — Referencing ingredients in recipes
 
@@ -292,10 +291,10 @@ What we did
 Updated the Recipe schema to include an ingredients array of ObjectIds.
 
 ingredients: [
-  {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Ingredient"
-  }
+{
+type: mongoose.Schema.Types.ObjectId,
+ref: "Ingredient"
+}
 ]
 
 Why we did it
@@ -306,7 +305,7 @@ MongoDB referencing.
 
 Recipes store references to ingredients instead of duplicating ingredient data.
 
-------------------------------------
+---
 
 ### Step 14 🐋 — Using populate() to load related data
 
@@ -331,7 +330,7 @@ http://localhost:3000/recipes
 Expected result
 Recipes should load their related ingredient documents using populate().
 
-------------------------------------
+---
 
 ### Step 15 🐅 — Created recipe show page
 
@@ -360,7 +359,7 @@ http://localhost:3000/recipes/65f2b3...
 Expected result
 The page should display a single recipe and its ingredients.
 
-------------------------------------
+---
 
 ## Key Concepts Learned
 
