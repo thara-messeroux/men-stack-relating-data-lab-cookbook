@@ -15,6 +15,9 @@ const router = express.Router();
 // Import Recipe model
 const Recipe = require("../models/recipe");
 
+// Import Ingredient model so we can populate ingredients in our recipes
+const Ingredient = require("../models/ingredient");
+
 // INDEX ROUTE
 // Displays all recipes
 router.get("/", async (req, res) => {
